@@ -21,10 +21,11 @@ export default function Home() {
   const [outcome, setOutcome] = useState();
   const [speed, setSpeed] = useState();
   const [defenseRating, setDefenseRating] = useState();
+  const [endgame, setEndgame] = useState();
 
   const finalAnswer = {team, match, alliance, zone, conesScoredLow, 
     conesScoredMiddle, conesScoredHigh, cubesScoredLow, cubesScoredMiddle, 
-    cubesScoredHigh, dropped, failed, outcome, speed, defenseRating}
+    cubesScoredHigh, dropped, failed, outcome, speed, defenseRating, endgame}
 
   return (
     <>
@@ -97,6 +98,8 @@ export default function Home() {
                 setSpeed={setSpeed}
                 defenseRating={defenseRating}
                 setDefenseRating={setDefenseRating}
+                endgame={endgame}
+                setEndgame={setEndgame}
               />
             </TabPanel>
             <TabPanel>

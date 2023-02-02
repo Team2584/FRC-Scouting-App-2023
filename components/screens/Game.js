@@ -28,6 +28,9 @@ export default function Game(props) {
           <Radio value={'4'}>4</Radio>
         </Stack>
       </RadioGroup>
+      <Select placeholder="Endgame">
+        <option></option>
+      </Select>
     </>
   )
 }

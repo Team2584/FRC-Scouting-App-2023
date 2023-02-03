@@ -10,8 +10,9 @@ export default function Review(props) {
     <>
       <Text>Team: {props.team}</Text>
       <Text>Match: {props.match}</Text>
-      <Text>Alliance: "{props.alliance}"</Text>
+      <Text>Alliance: '{props.alliance}'</Text>
       <Text>Zone: {props.zone}</Text>
+      <Text>Leave The Community? '{props.ltc}'</Text>
       <Text>Cubes Scored Low: {props.cubesScoredLow}</Text>
       <Text>Cubes Scored Middle: {props.cubesScoredMiddle}</Text>
       <Text>Cubes Scored High: {props.cubesScoredHigh}</Text>
@@ -20,9 +21,10 @@ export default function Review(props) {
       <Text>Cones Scored High: {props.conesScoredHigh}</Text>
       <Text>Number Dropped: {props.dropped}</Text>
       <Text>Number Failed: {props.failed}</Text>
-      <Text>Outcome: "{props.outcome}"</Text>
-      <Text>Speed: "{props.speed}"</Text>
+      <Text>Outcome: '{props.outcome}'</Text>
+      <Text>Speed: '{props.speed}'</Text>
       <Text>Defense Rating: {props.defenseRating}</Text>
+      <br />
       <Button onClick={() => {
         converter.json2csv(props, (err, csv) => {
           download(csv,'data.csv')

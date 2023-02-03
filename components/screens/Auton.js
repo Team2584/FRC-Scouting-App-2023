@@ -27,16 +27,35 @@ export default function Auton(props) {
               isDisabled={props.alliance == 'blue' ? false : !(props.alliance == 'red')}
               colorScheme={props.alliance == 'red' ? 'red' : 'blue'}
             >2</Radio>
-                        <Radio 
+            <Radio 
               value={'3'} 
               isDisabled={props.alliance == 'blue' ? false : !(props.alliance == 'red')}
               colorScheme={props.alliance == 'red' ? 'red' : 'blue'}
             >3</Radio>
-                        <Radio 
+            <Radio 
               value={'4'} 
               isDisabled={props.alliance == 'blue' ? false : !(props.alliance == 'red')}
               colorScheme={props.alliance == 'red' ? 'red' : 'blue'}
             >4</Radio>
+          </Stack>
+        </RadioGroup>
+        <RadioGroup onChange={props.setLtc} value={props.ltc}>
+          <Stack direction="row">
+            <Text>Leave the Community?</Text>
+            <Radio
+              value={'yes'} 
+              isDisabled={props.alliance == 'blue' ? false : !(props.alliance == 'red')}
+              colorScheme={props.alliance == 'red' ? 'red' : 'blue'}
+            >
+              Yes
+            </Radio>
+            <Radio
+              value={'no'} 
+              isDisabled={props.alliance == 'blue' ? false : !(props.alliance == 'red')}
+              colorScheme={props.alliance == 'red' ? 'red' : 'blue'}
+            >
+              No
+            </Radio>
           </Stack>
         </RadioGroup>
       </Stack>

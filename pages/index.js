@@ -10,6 +10,7 @@ export default function Home() {
   const [match, setMatch] = useState();
   const [alliance, setAlliance] = useState();
   const [zone, setZone] = useState();
+  const [ltc, setLtc] = useState();
   const [conesScoredLow, setConesScoredLow] = useState(0);
   const [conesScoredMiddle, setConesScoredMiddle] = useState(0);
   const [conesScoredHigh, setConesScoredHigh] = useState(0);
@@ -23,7 +24,7 @@ export default function Home() {
   const [defenseRating, setDefenseRating] = useState();
   const [endgame, setEndgame] = useState();
 
-  const finalAnswer = {team, match, alliance, zone, conesScoredLow, 
+  const finalAnswer = {team, match, alliance, zone, ltc, conesScoredLow, 
     conesScoredMiddle, conesScoredHigh, cubesScoredLow, cubesScoredMiddle, 
     cubesScoredHigh, dropped, failed, outcome, speed, defenseRating}
 
@@ -61,6 +62,8 @@ export default function Home() {
                 alliance={alliance} 
                 zone={zone}
                 setZone={setZone}
+                ltc={ltc}
+                setLtc={setLtc}
               />
             </TabPanel>
             <TabPanel>

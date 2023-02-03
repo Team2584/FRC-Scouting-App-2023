@@ -25,7 +25,7 @@ export default function Home() {
 
   const finalAnswer = {team, match, alliance, zone, conesScoredLow, 
     conesScoredMiddle, conesScoredHigh, cubesScoredLow, cubesScoredMiddle, 
-    cubesScoredHigh, dropped, failed, outcome, speed, defenseRating, endgame}
+    cubesScoredHigh, dropped, failed, outcome, speed, defenseRating}
 
   return (
     <>

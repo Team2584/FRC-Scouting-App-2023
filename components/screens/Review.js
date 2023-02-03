@@ -1,7 +1,11 @@
 import { Text, Button } from '@chakra-ui/react'
 // const jsonexport = require('jsonexport/dist');
+let converter = require('json-2-csv');
+const download = require('in-browser-download');
 
 export default function Review(props) {
+
+
   return (
     <>
       <Text>Team: {props.team}</Text>
@@ -19,7 +23,12 @@ export default function Review(props) {
       <Text>Outcome: "{props.outcome}"</Text>
       <Text>Speed: "{props.speed}"</Text>
       <Text>Defense Rating: {props.defenseRating}</Text>
-      <Button isDisabled>Download as CSV</Button>
+      <Button onClick={() => {
+        converter.json2csv(props, (err, csv) => {
+          download(csv,'data.csv')
+        })
+      }
+      }>Download as CSV</Button>
     </>
   )
 }

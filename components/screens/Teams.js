@@ -26,7 +26,7 @@ export default function Teams(props) {
         </InputGroup>
         <InputGroup value={props.match} onChange={(e) => props.setMatch(e.target.value<=5 ? e.target.value>=0 ? e.target.value : 0 : 5)}>  
           <InputLeftAddon children='Match #'/>
-          <NumberInput min={0} max={5}>
+          <NumberInput min={0}>
             <NumberInputField />
             <NumberInputStepper>
               <NumberIncrementStepper />

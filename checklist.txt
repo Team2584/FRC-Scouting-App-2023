@@ -1,0 +1,16 @@
+TODOS
+
+csv {
+  csv download working [√]
+  multiple matches [ ]
+}
+
+styles {
+  dark/lightmode [√]
+}
+
+basic functionality {
+  last few things [ ]
+}
+
+bug sweep [ ]

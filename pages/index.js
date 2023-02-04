@@ -69,8 +69,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ColorModeSwitcher justifySelf="flex-end" marginTop="2" />
-      <Container maxW="container.lg" onKeyDown={(e) => hotkey(e)}>
+      <div onKeyDown={(e) => hotkey(e)}>
+        <ColorModeSwitcher justifySelf="flex-end" marginTop="2" />
         <Center>
           <Container position="fixed" top="0" zIndex={1000}>
             <Center>
@@ -196,7 +196,7 @@ export default function Home() {
             </Tabs>
           </Container>
         </Center>
-      </Container>
+      </div>
     </>
   )
 }

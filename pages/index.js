@@ -1,7 +1,8 @@
 import Head from 'next/head'
-import { Container, Text, Tabs, Tab, TabList, TabPanels, TabPanel, Button } from '@chakra-ui/react' 
+import { Container, Text, Tabs, Tab, TabList, TabPanels, TabPanel, Center } from '@chakra-ui/react' 
 import { Auton, Game, Score, Teams, Review } from '../components/exportScreens'
 import { useState } from 'react'
+import { ColorModeSwitcher } from '../components/ColorModeSwitcher'
 
 
 export default function Home() {
@@ -36,81 +37,93 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container>
-        <br /> <br />
-        <Tabs>
-          <TabList>
-            <Tab>Teams</Tab>
-            <Tab>Auton</Tab>
-            <Tab>Score</Tab>
-            <Tab>Game</Tab>
-            <Tab>Review</Tab>
-          </TabList>
-          <TabPanels>
-            <TabPanel>
-              <Teams 
-                team={team} 
-                setTeam={setTeam}
-                match={match}
-                setMatch={setMatch}
-                alliance={alliance}
-                setAlliance={setAlliance}
-              />
-            </TabPanel>
-            <TabPanel>
-              <Auton 
-                alliance={alliance} 
-                zone={zone}
-                setZone={setZone}
-                ltc={ltc}
-                setLtc={setLtc}
-              />
-            </TabPanel>
-            <TabPanel>
-              <Score
-                cubesScoredLow={cubesScoredLow}
-                setCubesScoredLow={setCubesScoredLow}
+      <ColorModeSwitcher justifySelf="flex-end" marginTop="2" />
+      <Center>
+        <Container position="fixed" top="0" zIndex={1000}>
+          <Center>
+            <Text
+              bgGradient='linear(to-l, #7928CA, #FF0080)'
+              bgClip='text'
+              fontSize='6xl'
+              fontWeight='extrabold'
+            >
+              FRC Scout
+            </Text>
+          </Center>
+          <Tabs>
+            <TabList>
+              <Tab>Teams</Tab>
+              <Tab>Auton</Tab>
+              <Tab>Score</Tab>
+              <Tab>Game</Tab>
+              <Tab>Review</Tab>
+            </TabList>
+            <TabPanels>
+              <TabPanel>
+                <Teams 
+                  team={team} 
+                  setTeam={setTeam}
+                  match={match}
+                  setMatch={setMatch}
+                  alliance={alliance}
+                  setAlliance={setAlliance}
+                />
+              </TabPanel>
+              <TabPanel>
+                <Auton 
+                  alliance={alliance} 
+                  zone={zone}
+                  setZone={setZone}
+                  ltc={ltc}
+                  setLtc={setLtc}
+                />
+              </TabPanel>
+              <TabPanel>
+                <Score
+                  cubesScoredLow={cubesScoredLow}
+                  setCubesScoredLow={setCubesScoredLow}
 
-                cubesScoredMiddle={cubesScoredMiddle}
-                setCubesScoredMiddle={setCubesScoredMiddle}
+                  cubesScoredMiddle={cubesScoredMiddle}
+                  setCubesScoredMiddle={setCubesScoredMiddle}
 
-                cubesScoredHigh={cubesScoredHigh}
-                setCubesScoredHigh={setCubesScoredHigh}
+                  cubesScoredHigh={cubesScoredHigh}
+                  setCubesScoredHigh={setCubesScoredHigh}
 
-                conesScoredLow={conesScoredLow}
-                setConesScoredLow={setConesScoredLow}
+                  conesScoredLow={conesScoredLow}
+                  setConesScoredLow={setConesScoredLow}
 
-                conesScoredMiddle={conesScoredMiddle}
-                setConesScoredMiddle={setConesScoredMiddle}
+                  conesScoredMiddle={conesScoredMiddle}
+                  setConesScoredMiddle={setConesScoredMiddle}
 
-                conesScoredHigh={conesScoredHigh}
-                setConesScoredHigh={setConesScoredHigh}
+                  conesScoredHigh={conesScoredHigh}
+                  setConesScoredHigh={setConesScoredHigh}
 
-                dropped={dropped}
-                setDropped={setDropped}
+                  dropped={dropped}
+                  setDropped={setDropped}
 
-                failed={failed}
-                setFailed={setFailed}
-              />
-            </TabPanel>
-            <TabPanel>
-              <Game 
-                outcome={outcome}
-                setOutcome={setOutcome}
-                speed={speed}
-                setSpeed={setSpeed}
-                defenseRating={defenseRating}
-                setDefenseRating={setDefenseRating}
-                endgame={endgame}
-                setEndgame={setEndgame}
-              />
-            </TabPanel>
-            <TabPanel>
-              <Review {...finalAnswer}/>
-            </TabPanel>
-          </TabPanels>
-        </Tabs>
-      </Container>
+                  failed={failed}
+                  setFailed={setFailed}
+                />
+              </TabPanel>
+              <TabPanel>
+                <Game 
+                  outcome={outcome}
+                  setOutcome={setOutcome}
+                  speed={speed}
+                  setSpeed={setSpeed}
+                  defenseRating={defenseRating}
+                  setDefenseRating={setDefenseRating}
+                  endgame={endgame}
+                  setEndgame={setEndgame}
+                />
+              </TabPanel>
+              <TabPanel>
+                <Review {...finalAnswer}/>
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+        </Container>
+      </Center>
     </>
   )
 }

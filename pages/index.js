@@ -42,9 +42,9 @@ export default function Home() {
         <Container position="fixed" top="0" zIndex={1000}>
           <Center>
             <Text
-              bgGradient='linear(to-l, #7928CA, #FF0080)'
+              bgGradient='linear(to-l, #db5757, #473d3d)'
               bgClip='text'
-              fontSize='6xl'
+              fontSize='7xl'
               fontWeight='extrabold'
             >
               FRC Scout

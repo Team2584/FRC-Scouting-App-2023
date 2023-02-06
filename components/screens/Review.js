@@ -25,6 +25,9 @@ export default function Review(props) {
       <Text>Speed: {props.speed != undefined ?'\'':''}{props.speed}{props.speed != undefined ?'\'':''}</Text>
       <Text>Defense Rating: {props.defenseRating}</Text>
       <br />
+      <Button>
+        Next Match
+      </Button> <br /> <br />
       <Button onClick={() => {
         converter.json2csv(props, (err, csv) => {
           download(csv,'data.csv')

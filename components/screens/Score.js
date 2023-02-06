@@ -11,7 +11,7 @@ import {
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,
-  NumberDecrementStepper
+  NumberDecrementStepper,
 } from '@chakra-ui/react'
 import NumImp from '../NumImp'
 

@@ -1,4 +1,20 @@
-import { Text, Radio, RadioGroup, Stack, Select } from '@chakra-ui/react'
+import {
+  Text,
+  Radio, 
+  RadioGroup,
+  Stack, 
+  IconButton,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverArrow,
+  PopoverCloseButton, 
+} from '@chakra-ui/react'
+import { FaInfoCircle } from 'react-icons/fa'
+
 
 export default function Game(props) {
   return (
@@ -26,6 +42,25 @@ export default function Game(props) {
           <Radio value={'2'} colorScheme={props.alliance == 'red' ? 'red' : 'blue'}>2</Radio>
           <Radio value={'3'} colorScheme={props.alliance == 'red' ? 'red' : 'blue'}>3</Radio>
           <Radio value={'4'} colorScheme={props.alliance == 'red' ? 'red' : 'blue'}>4</Radio>
+          <Popover>
+            <PopoverTrigger>
+              <IconButton icon={<FaInfoCircle />} variant="link" />
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverHeader>Defense Ranking Guide</PopoverHeader>
+              <PopoverBody>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Pellentesque pulvinar eros id sodales dapibus. 
+                Proin fermentum est sem, a molestie libero faucibus nec. 
+                In hac habitasse platea dictumst. 
+                Morbi laoreet tortor at turpis elementum, a ullamcorper libero molestie. 
+                Nunc nec efficitur turpis, eget maximus libero. 
+                In suscipit malesuada eros pellentesque dapibus. 
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
         </Stack>
       </RadioGroup>
       {/* <Select placeholder="Endgame" value={props.endgame} onClick={props.setEndgame}>

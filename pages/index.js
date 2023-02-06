@@ -5,7 +5,11 @@ import { Auton, Game, Score, Teams, Review } from '../components/exportScreens'
 import { useState, useRef } from 'react'
 import { ColorModeSwitcher } from '../components/ColorModeSwitcher'
 import { FaArrowRight } from 'react-icons/fa'
+import { cowsay } from 'cowsayjs'
 
+console.log(
+  cowsay('I\'m the robotics cow!')
+)
 
 export default function Home() {
   const [team, setTeam] = useState();

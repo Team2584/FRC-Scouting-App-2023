@@ -9,3 +9,4 @@ Expand-Archive -Path FRC-Scouting-App-2023-main.zip -DestinationPath FRC-Scoutin
 cd FRC-Scouting-App-2023-main\FRC-Scouting-App-2023-main
 npm install
 npm run dev
+start http://localhost:3000

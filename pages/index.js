@@ -1,14 +1,16 @@
 // COPYRIGHT JULIAN DANS AND STUFF
 import Head from 'next/head'
 import { Container, Text, Tabs, Tab, TabList, TabPanels, TabPanel, Center, IconButton } from '@chakra-ui/react' 
-import { Auton, Game, Score, Teams, Review } from '../components/exportScreens'
+import { Auton, Game, Teleop, Teams, Review } from '../components/exportScreens'
 import { useState, useRef } from 'react'
 import { ColorModeSwitcher } from '../components/ColorModeSwitcher'
 import { FaArrowRight } from 'react-icons/fa'
 import { cowsay } from 'cowsayjs'
+// import chalk from 'chalk'
 
 console.log(
   cowsay('I\'m the robotics cow!')
+
 )
 
 export default function Home() {
@@ -17,18 +19,25 @@ export default function Home() {
   const [alliance, setAlliance] = useState();
   const [zone, setZone] = useState();
   const [ltc, setLtc] = useState();
-  const [conesScoredLow, setConesScoredLow] = useState(0);
-  const [conesScoredMiddle, setConesScoredMiddle] = useState(0);
-  const [conesScoredHigh, setConesScoredHigh] = useState(0);
-  const [cubesScoredLow, setCubesScoredLow] = useState(0);
-  const [cubesScoredMiddle, setCubesScoredMiddle] = useState(0);
-  const [cubesScoredHigh, setCubesScoredHigh] = useState(0);
+  const [autonParking, setAutonParking] = useState();
+  const [autonConesScoredLow, setAutonConesScoredLow] = useState(0);
+  const [autonConesScoredMiddle, setAutonConesScoredMiddle] = useState(0);
+  const [autonConesScoredHigh, setAutonConesScoredHigh] = useState(0);
+  const [autonCubesScoredLow, setAutonCubesScoredLow] = useState(0);
+  const [autonCubesScoredMiddle, setAutonCubesScoredMiddle] = useState(0);
+  const [autonCubesScoredHigh, setAutonCubesScoredHigh] = useState(0);
+  const [teleopConesScoredLow, setTeleopConesScoredLow] = useState(0);
+  const [teleopConesScoredMiddle, setTeleopConesScoredMiddle] = useState(0);
+  const [teleopConesScoredHigh, setTeleopConesScoredHigh] = useState(0);
+  const [teleopCubesScoredLow, setTeleopCubesScoredLow] = useState(0);
+  const [teleopCubesScoredMiddle, setTeleopCubesScoredMiddle] = useState(0);
+  const [teleopCubesScoredHigh, setTeleopCubesScoredHigh] = useState(0);
   const [dropped, setDropped] = useState(0);
   const [failed, setFailed] = useState(0);
   const [outcome, setOutcome] = useState();
   const [speed, setSpeed] = useState();
   const [defenseRating, setDefenseRating] = useState();
-  const [endgame, setEndgame] = useState();
+  const [endgameParking, setEndgameParking] = useState();
 
   const teamsTab = useRef();
   const toTeams = () => { teamsTab.current.click() }
@@ -36,34 +45,20 @@ export default function Home() {
   const toAuton = () => { autonTab.current.click() }
   const gameTab = useRef();
   const toGame = () => { gameTab.current.click() }
-  const scoreTab = useRef();
-  const toScore = () => { scoreTab.current.click() }
+  const teleopTab = useRef();
+  const toTeleop = () => { teleopTab.current.click() }
   const reviewTab = useRef();
   const toReview = () => { reviewTab.current.click() }
+//   const compositeTab = useRef();
+//   const toComposite = () => { compositeTab.current.click() }
 
-  function hotkey(event) {
-    switch (event.key) {
-      case 't':
-        toTeams();
-        break;
-      case 'a':
-        toAuton();
-        break;
-      case 'g':
-        toGame();
-        break;
-      case 'r':
-        toReview();
-        break;
-      case 's':
-        toScore();
-        break;
-    }
-  }
 
-  const finalAnswer = {team, match, alliance, zone, ltc, conesScoredLow, 
-    conesScoredMiddle, conesScoredHigh, cubesScoredLow, cubesScoredMiddle, 
-    cubesScoredHigh, dropped, failed, outcome, speed, defenseRating}
+  const finalAnswer = { team, match, alliance, zone, ltc, autonParking, 
+    autonConesScoredLow, autonConesScoredMiddle, autonConesScoredHigh, 
+    autonCubesScoredLow, autonCubesScoredMiddle, autonCubesScoredHigh, 
+    teleopConesScoredLow, teleopConesScoredMiddle, teleopConesScoredHigh, 
+    teleopCubesScoredLow, teleopCubesScoredMiddle, teleopCubesScoredHigh, 
+    dropped, failed, outcome, speed, defenseRating, endgameParking }
 
   return (
     <>
@@ -73,7 +68,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div onKeyDown={(e) => hotkey(e)}>
+      <div>
         <ColorModeSwitcher justifySelf="flex-end" marginTop="2" />
         <Center>
           <Container position="fixed" top="0" zIndex={1000}>
@@ -91,9 +86,10 @@ export default function Home() {
               <TabList>
                 <Tab ref={teamsTab}>Teams</Tab>
                 <Tab ref={autonTab}>Auton</Tab>
-                <Tab ref={scoreTab}>Score</Tab>
+                <Tab ref={teleopTab}>Teleop</Tab>
                 <Tab ref={gameTab}>Game</Tab>
                 <Tab ref={reviewTab}>Review</Tab>
+                {/* <Tab ref={compositeTab}>Composite</Tab> */}
               </TabList>
               <TabPanels>
                 <TabPanel>
@@ -122,6 +118,26 @@ export default function Home() {
                     setZone={setZone}
                     ltc={ltc}
                     setLtc={setLtc}
+                    autonParking={autonParking}
+                    setAutonParking={setAutonParking}
+
+                    autonCubesScoredLow={autonCubesScoredLow}
+                    setAutonCubesScoredLow={setAutonCubesScoredLow}
+
+                    autonCubesScoredMiddle={autonCubesScoredMiddle}
+                    setAutonCubesScoredMiddle={setAutonCubesScoredMiddle}
+
+                    autonCubesScoredHigh={autonCubesScoredHigh}
+                    setAutonCubesScoredHigh={setAutonCubesScoredHigh}
+
+                    autonConesScoredLow={autonConesScoredLow}
+                    setAutonConesScoredLow={setAutonConesScoredLow}
+
+                    autonConesScoredMiddle={autonConesScoredMiddle}
+                    setAutonConesScoredMiddle={setAutonConesScoredMiddle}
+
+                    autonConesScoredHigh={autonConesScoredHigh}
+                    setAutonConesScoredHigh={setAutonConesScoredHigh}
                   />
                   <IconButton 
                     size="md"
@@ -129,29 +145,29 @@ export default function Home() {
                     variant="ghost"
                     color="current"
                     icon={<FaArrowRight />}
-                    onClick={toScore}
+                    onClick={toTeleop}
                     marginLeft='100%'
                   />
                 </TabPanel>
                 <TabPanel>
-                  <Score
-                    cubesScoredLow={cubesScoredLow}
-                    setCubesScoredLow={setCubesScoredLow}
+                  <Teleop
+                    teleopCubesScoredLow={teleopCubesScoredLow}
+                    setTeleopCubesScoredLow={setTeleopCubesScoredLow}
 
-                    cubesScoredMiddle={cubesScoredMiddle}
-                    setCubesScoredMiddle={setCubesScoredMiddle}
+                    teleopCubesScoredMiddle={teleopCubesScoredMiddle}
+                    setTeleopCubesScoredMiddle={setTeleopCubesScoredMiddle}
 
-                    cubesScoredHigh={cubesScoredHigh}
-                    setCubesScoredHigh={setCubesScoredHigh}
+                    teleopCubesScoredHigh={teleopCubesScoredHigh}
+                    setTeleopCubesScoredHigh={setTeleopCubesScoredHigh}
 
-                    conesScoredLow={conesScoredLow}
-                    setConesScoredLow={setConesScoredLow}
+                    teleopConesScoredLow={teleopConesScoredLow}
+                    setTeleopConesScoredLow={setTeleopConesScoredLow}
 
-                    conesScoredMiddle={conesScoredMiddle}
-                    setConesScoredMiddle={setConesScoredMiddle}
+                    teleopConesScoredMiddle={teleopConesScoredMiddle}
+                    setTeleopConesScoredMiddle={setTeleopConesScoredMiddle}
 
-                    conesScoredHigh={conesScoredHigh}
-                    setConesScoredHigh={setConesScoredHigh}
+                    teleopConesScoredHigh={teleopConesScoredHigh}
+                    setTeleopConesScoredHigh={setTeleopConesScoredHigh}
 
                     dropped={dropped}
                     setDropped={setDropped}
@@ -179,8 +195,8 @@ export default function Home() {
                     setSpeed={setSpeed}
                     defenseRating={defenseRating}
                     setDefenseRating={setDefenseRating}
-                    endgame={endgame}
-                    setEndgame={setEndgame}
+                    endgameParking={endgameParking}
+                    setEndgameParking={setEndgameParking}
                     alliance={alliance}
                   />
                   <IconButton 
@@ -196,6 +212,9 @@ export default function Home() {
                 <TabPanel>
                   <Review {...finalAnswer}/>
                 </TabPanel>
+                {/* <TabPanel>
+                  <Composite />
+                </TabPanel> */}
               </TabPanels>
             </Tabs>
           </Container>

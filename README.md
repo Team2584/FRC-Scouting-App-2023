@@ -1,7 +1,7 @@
 # FRC Scouting App Instructions
 
 1. Download the code.
-2. Put the following code into the console:
+2. Put the following code into the console (of the root directory):
 
         npm install
         npm run dev

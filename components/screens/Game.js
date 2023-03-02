@@ -51,18 +51,24 @@ export default function Game(props) {
               <PopoverCloseButton />
               <PopoverHeader>Defense Ranking Guide</PopoverHeader>
               <PopoverBody>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Pellentesque pulvinar eros id sodales dapibus. 
-                Proin fermentum est sem, a molestie libero faucibus nec. 
-                In hac habitasse platea dictumst. 
-                Morbi laoreet tortor at turpis elementum, a ullamcorper libero molestie. 
-                Nunc nec efficitur turpis, eget maximus libero. 
-                In suscipit malesuada eros pellentesque dapibus. 
+                1 {'->'} Played zone defense with limited effect <br/>
+                2 {'->'} Played active defense with limited effect <br/>
+                3 {'->'} Played zone defense and shot down zone <br/>
+                4 {'->'} Made team(s) ineffective by playing active defense
               </PopoverBody>
             </PopoverContent>
           </Popover>
         </Stack>
       </RadioGroup>
+      <RadioGroup onChange={props.setEndgameParking} value={props.endgameParking}>
+          <Stack direction="row">
+            <Text>Endgame Parking:</Text>
+            <Radio value={'Parked With Balancing'}> Balanced </Radio>
+            <Radio value={'Parked Without Balancing'}> Unbalanced </Radio>
+            <Radio value={'Failed'}> Failed </Radio>
+            <Radio value={'Not Attempted'}> Not Attempted </Radio>
+          </Stack>
+        </RadioGroup>
       {/* <Select placeholder="Endgame" value={props.endgame} onClick={props.setEndgame}>
         <option value="option1">Option 1</option>
         <option value="option2">Option 2</option>

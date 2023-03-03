@@ -38,6 +38,7 @@ export default function Game(props) {
       <RadioGroup onChange={props.setDefenseRating} value={props.defenseRating}>
         <Stack direction="row">
           <Text>Rate the Defense:</Text>
+          <Radio value={'0'} colorScheme={props.alliance == 'red' ? 'red' : 'blue'}>0</Radio>
           <Radio value={'1'} colorScheme={props.alliance == 'red' ? 'red' : 'blue'}>1</Radio>
           <Radio value={'2'} colorScheme={props.alliance == 'red' ? 'red' : 'blue'}>2</Radio>
           <Radio value={'3'} colorScheme={props.alliance == 'red' ? 'red' : 'blue'}>3</Radio>
@@ -51,6 +52,7 @@ export default function Game(props) {
               <PopoverCloseButton />
               <PopoverHeader>Defense Ranking Guide</PopoverHeader>
               <PopoverBody>
+                0 {'->'} Defense not attempted <br/>
                 1 {'->'} Played zone defense with limited effect <br/>
                 2 {'->'} Played active defense with limited effect <br/>
                 3 {'->'} Played zone defense and shot down zone <br/>

@@ -35,7 +35,7 @@ export default function Review(props) {
       <br />
       <Button onClick={() => {
         converter.json2csv(props, (err, csv) => {
-          download( csv, 'Match' + props.match + '.csv' )
+          download( csv, 'Match' + props.match + '_Team' + props.team + '.csv' )
         })
       }
       }>Download as CSV</Button>

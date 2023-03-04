@@ -42,7 +42,7 @@ export default function Review(props) {
           body: JSON.stringify(props),
         })
       }
-      }>Send The CSV File And Get No Feedback on Whether It Worked Because The Programmers are Lazy Bastards</Button>
+      }>Send The CSV File And Get No Feedback On Whether It Worked Because The Programmers Are Lazy</Button>
 
     </>
   )

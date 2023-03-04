@@ -34,11 +34,16 @@ export default function Review(props) {
       <Text>Endgame Parking: {props.endgameParking != undefined ?'\'':''}{props.endgameParking}{props.endgameParking != undefined ?'\'':''} </Text>
       <br />
       <Button onClick={() => {
-        converter.json2csv(props, (err, csv) => {
-          download( csv, 'Match' + props.match + '_Team' + props.team + '.csv' )
+        fetch("/api/send-match-data", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(props),
         })
       }
-      }>Download as CSV</Button>
+      }>Send The CSV File And Get No Feedback on Whether It Worked Because The Programmers are Lazy Bastards</Button>
+
     </>
   )
 }

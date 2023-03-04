@@ -32,7 +32,7 @@ export default function Score(props) {
             <Tr>
               <Td>Cube</Td>
               <Td>
-                <NumberInput min={0} max={10} defaultValue={0} value={props.teleopCubesScoredLow} onChange={props.setTeleopCubesScoredLow}>
+                <NumberInput min={0} max={10} defaultValue={0} value={props.teleopCubesScoredLow} onChange={props.setTeleopCubesScoredLow} style={{}}>
                   <NumberInputField />
                   <NumberInputStepper>
                     <NumberIncrementStepper />

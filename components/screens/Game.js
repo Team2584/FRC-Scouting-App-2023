@@ -27,6 +27,7 @@ export default function Game(props) {
           <Radio value={'tie'} colorScheme={props.alliance == 'red' ? 'red' : 'blue'}>Tie</Radio>
         </Stack>        
       </RadioGroup>
+        <br />
       <RadioGroup onChange={props.setSpeed} value={props.speed}>
         <Stack direction="row">
           <Text>Speed:</Text>
@@ -35,6 +36,7 @@ export default function Game(props) {
           <Radio value={'fast'} colorScheme={props.alliance == 'red' ? 'red' : 'blue'}>Fast</Radio>
         </Stack>        
       </RadioGroup>
+        <br />
       <RadioGroup onChange={props.setDefenseRating} value={props.defenseRating}>
         <Stack direction="row">
           <Text>Rate the Defense:</Text>
@@ -62,6 +64,7 @@ export default function Game(props) {
           </Popover>
         </Stack>
       </RadioGroup>
+        <br />
       <RadioGroup onChange={props.setEndgameParking} value={props.endgameParking}>
           <Stack direction="row">
             <Text>Endgame Parking:</Text>
@@ -71,6 +74,7 @@ export default function Game(props) {
             <Radio value={'Not Attempted'}> Not Attempted </Radio>
           </Stack>
         </RadioGroup>
+        <br />
       {/* <Select placeholder="Endgame" value={props.endgame} onClick={props.setEndgame}>
         <option value="option1">Option 1</option>
         <option value="option2">Option 2</option>

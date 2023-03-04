@@ -19,13 +19,13 @@ export default function Teams(props) {
     <>
       <Stack>
         <InputGroup value={props.team} onChange={e => props.setTeam(e.target.value<=9999 ? e.target.value : 9999)}>  
-          <InputLeftAddon children='Team #'/>
+          <InputLeftAddon>Team #</InputLeftAddon>
           <NumberInput min={0} max={9999}>
             <NumberInputField />
           </NumberInput>
         </InputGroup>
         <InputGroup value={props.match} onChange={(e) => props.setMatch(e.target.value<=5 ? e.target.value>=0 ? e.target.value : 0 : 5)}>  
-          <InputLeftAddon children='Match #'/>
+          <InputLeftAddon>Match #</InputLeftAddon>
           <NumberInput min={0}>
             <NumberInputField />
             <NumberInputStepper>
